@@ -1,0 +1,39 @@
+<script src="https://floridafarmbureau--cetrixdev.sandbox.my.site.com/Demo/lightning/lightning.out.js"></script>
+<script>
+    // Define the dynamic variables for the parameters.
+    var recordId = "02iOx000000iFbFIAU";
+
+    $Lightning.use("c:EZPayOptApp",    // name of the Lightning app
+        function() {                  // Callback once framework and app loaded
+            $Lightning.createComponent(
+                "c:EZPayOptComp", // top-level component of your app
+                {
+                    "recordId": recordId,
+                    "onClose": function() {
+                        if (callbackPopup) {
+                            callbackPopup();
+                        }
+                    }
+                },                  // attributes to set on the component when created
+                "lightningLocator",   // the DOM location to insert the component
+                function(cmp) {
+                    console.log('Hi from callback'); // callback when component is created and active on the page
+                }
+            );
+        }, 'https://floridafarmbureau--cetrixdev.sandbox.my.site.com/Demo'  // Community endpoint
+    );
+
+    // Listen for messages from the Aura component
+    window.addEventListener('message', function(event) {
+        // Check if the received event name is the one you specified
+        if (event.data.event === 'lightningtOutMessage' && event.data.status === 'FINISHED') {
+            console.log('Flow finished with result:', event.data.result);
+            alert('Flow finished with result: ' + event.data.result);
+        }
+    }, false);
+</script>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<div id="lightningLocator"> Hello, World! </div>
+<!-- /wp:paragraph -->
