@@ -3,10 +3,10 @@
         console.log("Component created 1 ");
         $Lightning.use('c:TestLightningOut', 
             function() {
-                    console.log("Component created 2 ");
+                   
                 $Lightning.createComponent(
                     'c:testFlowComponent',
-                    {},
+                    { console.log("Component created 2 ");},
                    'lightning-out',  // DOM element ID
                 function() {
                         console.log("Component created: ");
