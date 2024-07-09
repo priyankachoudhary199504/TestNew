@@ -1,19 +1,19 @@
 <script src="https://priyankach-230710-420-demo.my.salesforce.com/lightning/lightning.out.js"></script>
 <script>
         console.log("Component created 1 ");
-        $Lightning.use("c:TestLightningOut", 
+        $Lightning.use('c:TestLightningOut', 
             function() {
                     console.log("Component created 2 ");
                 $Lightning.createComponent(
-                    "c:testFlowComponent",
+                    'c:testFlowComponent',
                     {},
-                    "lightning-container",  // DOM element ID
+                   'lightning-out',  // DOM element ID
                 function() {
                         console.log("Component created: ");
                     } 
                 );
             },
-            "https://priyankach-230710-420-demo.lightning.force.com, 00DHu000001PAFi!AQcAQNJ6Zxd.PgmqDnmz9HrXzMIONOmzD70sVZ9ew3.gZcwhFbXlOwoDtqD6OKbkFJ34Q5oZavE4YzQCv7tg8I.tG6wdrG77"
+            'https://priyankach-230710-420-demo.lightning.force.com, 00DHu000001PAFi!AQcAQNJ6Zxd.PgmqDnmz9HrXzMIONOmzD70sVZ9ew3.gZcwhFbXlOwoDtqD6OKbkFJ34Q5oZavE4YzQCv7tg8I.tG6wdrG77'
         );
     </script>
 </head>
